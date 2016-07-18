@@ -1,45 +1,4 @@
-<!DOCTYPE html>
-<meta charset="utf-8">
-<!DOCTYPE html>
-<html>
-<head>
-  <title></title>
-  <style>
 
-body {
-  font: 10px sans-serif;
-}
-
-.axis path,
-.axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
-}
-
-.x.axis path {
-  display: none;
-}
-
-.line {
-  fill: none;
-  stroke: steelblue;
-  stroke-width: 1.5px;
-}
-svg{
-    background-color: antiquewhite;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
-    display: block;
-  }
-
-</style>
-</head>
-<body>
-
-<script src="//d3js.org/d3.v3.min.js"></script>
-<script>
 
 var margin = {top: 20, right: 80, bottom: 30, left: 50},
     width = 960 + margin.left + margin.right,
@@ -72,7 +31,7 @@ var svg = d3.select("body").append("svg")
   .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-d3.json("data2.json", function(error, data) {
+d3.json("jsonData/data2.json", function(error, data) {
   if (error) throw error;
 
   color.domain(d3.keys(data[0]).filter(function(key) { return key !== "Year"; }));
@@ -135,7 +94,3 @@ d3.json("data2.json", function(error, data) {
       .attr("dy", ".35em")
       .text(function(d) { return d.name; });
 });
-
-</script>
-</body>
-</html>
